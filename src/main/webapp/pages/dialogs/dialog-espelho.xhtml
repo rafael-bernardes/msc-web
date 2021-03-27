@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition>
+	<p:dialog id="dialogEspelho" header="Espelho do IPTU" modal="true" responsive="true" widgetVar="dialogEspelho">
+		<h:form>
+		<p:panelGrid columns="2">
+			<h:outputLabel value="Nome:"></h:outputLabel>
+			<h:outputLabel value="#{espelho.espelho.contribuinte.nome}"></h:outputLabel>
+			
+			<h:outputLabel value="Documento:"></h:outputLabel>
+			<h:outputLabel value="#{espelho.formatarCPF(espelho.espelho.contribuinte.documento)}"></h:outputLabel>
+			
+			<h:outputLabel value="Tipo de pessoa:"></h:outputLabel>
+			<h:outputLabel value="#{espelho.obterTipoPessoa(espelho.espelho.contribuinte.tipoPessoa)}"></h:outputLabel>
+			
+			<h:outputLabel value="Endereço:"></h:outputLabel>
+			<h:outputLabel value="#{espelho.espelho.contribuinte.endereco}"></h:outputLabel>
+			
+			<h:outputLabel value="Número:"></h:outputLabel>
+			<h:outputLabel value="#{espelho.espelho.contribuinte.numero}"></h:outputLabel>
+			
+			<h:outputLabel value="Bairro:"></h:outputLabel>
+			<h:outputLabel value="#{espelho.espelho.contribuinte.bairro}"></h:outputLabel>
+			
+			<h:outputLabel value="Cidade:"></h:outputLabel>
+			<h:outputLabel value="#{espelho.espelho.contribuinte.cidade}"></h:outputLabel>
+			
+			<h:outputLabel value="CEP:"></h:outputLabel>
+			<h:outputLabel value="#{espelho.espelho.contribuinte.cep}"></h:outputLabel>
+			
+			<h:outputLabel value="Matrícula:"></h:outputLabel>
+			<h:outputLabel value="#{espelho.espelho.matricula}"></h:outputLabel>
+			
+			<h:outputLabel value="Data de processamento:"></h:outputLabel>
+			<h:outputLabel value="#{espelho.obterDataProcessamento(espelho.espelho.dataProcessamento)}"></h:outputLabel>
+			
+			<h:outputLabel value="Área do terreno:"></h:outputLabel>
+			<h:outputLabel value="#{espelho.espelho.areaTerreno}"></h:outputLabel>
+			
+			<h:outputLabel value="Área edificada:"></h:outputLabel>
+			<h:outputLabel value="#{espelho.espelho.areaEdificada}"></h:outputLabel>
+			
+			<h:outputLabel value="Utilização do imóvel:"></h:outputLabel>
+			<h:outputLabel value="#{espelho.espelho.utilizacaoImovel}"></h:outputLabel>
+			
+			<h:outputLabel value="Valor tributável:"></h:outputLabel>
+			<h:outputLabel value="R$ #{espelho.espelho.valorTributavel}"></h:outputLabel>
+			
+			<h:outputLabel value="Imposto Anual:"></h:outputLabel>
+			<h:outputLabel value="R$ #{espelho.espelho.impostoAnual}"></h:outputLabel>
+			
+			<h:outputLabel value="Taxa de coleta de lixo:"></h:outputLabel>
+			<h:outputLabel value="R$ #{espelho.espelho.taxaColetaLixo}"></h:outputLabel>
+			
+			<h:outputLabel value="Desconto:"></h:outputLabel>
+			<h:outputLabel value="#{espelho.espelho.desconto}%"></h:outputLabel>
+			
+			<h:outputLabel value="Total anual:"></h:outputLabel>
+			<h:outputLabel value="R$ #{espelho.espelho.totalAnual}"></h:outputLabel>
+			
+			<h:outputLabel value="Mensagem para o contribuinte:"></h:outputLabel>
+			<h:outputLabel value="#{espelho.espelho.mensagemContribuinte}"></h:outputLabel>
+			
+			<h:outputLabel value="Observações:"></h:outputLabel>
+			<h:outputLabel value="#{espelho.espelho.observacoes}"></h:outputLabel>
+		</p:panelGrid>
+		</h:form>
+	</p:dialog>
+</ui:composition>
+</html>

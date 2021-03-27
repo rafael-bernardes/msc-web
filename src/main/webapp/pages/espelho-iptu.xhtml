@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/template/template.xhtml">
+	<ui:define name="content">
+		<h:form>
+		    <div class="row" align="center" >
+		    	<p:fieldset style="max-width: 800px">
+				<h:outputText value="Nesta funcionalidade, é possível obter dados do espelho do IPTU advindos do STUR"/>
+				</p:fieldset>
+			</div>
+			<div class="row" align="center" style="margin-top: 2em;">
+				<p:selectOneRadio value="#{espelho.tipoPessoa}" columns="3" id="socTipoPessoa">
+					<f:selectItem itemLabel="Pessoa Física" itemValue="1" id="fisica"/>
+					<f:selectItem itemLabel="Pessoa Juridica" itemValue="2" id="juridica"/>
+					<f:selectItem itemLabel="Pessoa Rural" itemValue="3" id="rural"/>
+				</p:selectOneRadio>
+			</div>
+			<div class="row" align="center" style="margin-top: 2em;">
+				<h:outputText value="Documento:" style="margin-rigth: 1em"></h:outputText>
+				<p:inputText value="#{espelho.documento}"></p:inputText>
+			</div>
+			<div class="row" align="center" style="margin-top: 2em;">
+				<p:commandButton value="Gerar Espelho" action="#{espelho.gerarEspelho}" update=":header:growl socTipoPessoa dialogEspelho" ></p:commandButton>
+			</div>
+			<ui:include src="/pages/dialogs/dialog-espelho.xhtml"></ui:include>
+			
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
