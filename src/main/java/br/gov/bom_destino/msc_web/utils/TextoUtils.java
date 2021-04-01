@@ -1,4 +1,4 @@
-package br.com.bom_destino.utils;
+package br.gov.bom_destino.msc_web.utils;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

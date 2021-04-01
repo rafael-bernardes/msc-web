@@ -1,4 +1,4 @@
-package br.com.bom_destino.enums;
+package br.gov.bom_destino.msc_web.enums;
 
 public enum TipoPessoa {
 	FISICA(1, "Física"),

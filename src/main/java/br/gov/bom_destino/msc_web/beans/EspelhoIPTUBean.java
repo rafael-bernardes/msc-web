@@ -1,4 +1,4 @@
-package br.com.bom_destino.beans;
+package br.gov.bom_destino.msc_web.beans;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -17,10 +17,10 @@ import org.jboss.resteasy.client.jaxrs.ResteasyClient;
 import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
 import org.primefaces.PrimeFaces;
 
-import br.com.bom_destino.entities.EspelhoIptu;
-import br.com.bom_destino.enums.TipoPessoa;
-import br.com.bom_destino.utils.PropertiesUtil;
-import br.com.bom_destino.utils.TextoUtils;
+import br.gov.bom_destino.msc_web.entities.EspelhoIptu;
+import br.gov.bom_destino.msc_web.enums.TipoPessoa;
+import br.gov.bom_destino.msc_web.utils.PropertiesUtil;
+import br.gov.bom_destino.msc_web.utils.TextoUtils;
 
 
 @ManagedBean(name = "espelho")

@@ -1,4 +1,4 @@
-package br.com.bom_destino.entities;
+package br.gov.bom_destino.msc_web.entities;
 
 import java.util.Date;
 
