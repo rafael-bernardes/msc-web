@@ -32,6 +32,7 @@ public class EspelhoIPTUBean implements Serializable {
 
 	private Integer tipoPessoa;
 	private String documento;
+	private boolean adicionarIdentificacao;
 
 	private EspelhoIptu espelho;
 	
@@ -51,6 +52,10 @@ public class EspelhoIPTUBean implements Serializable {
 		
 			target = target.queryParam("tipo-pessoa", tipoPessoa);
 			target = target.queryParam("documento", documento);
+			
+			if(adicionarIdentificacao) {
+				target = target.queryParam("nome-cliente", "img-web");
+			}
 			
 			Response response = target.request().get();
 			
@@ -114,5 +119,13 @@ public class EspelhoIPTUBean implements Serializable {
 
 	public void setEspelho(EspelhoIptu espelho) {
 		this.espelho = espelho;
+	}
+
+	public boolean isAdicionarIdentificacao() {
+		return adicionarIdentificacao;
+	}
+
+	public void setAdicionarIdentificacao(boolean adicionarIdentificacao) {
+		this.adicionarIdentificacao = adicionarIdentificacao;
 	}
 }
