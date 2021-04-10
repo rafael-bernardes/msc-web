@@ -23,6 +23,26 @@ public class TextoUtils {
 		return s.toString();
 	}
 	
+	public static String formatarCNPJ(String cnpj) throws Exception {
+		if(cnpj == null || cnpj.length() != 14) {
+			throw new Exception("CNPJ incorreto");
+		}
+		
+		StringBuilder s = new StringBuilder();
+		
+		s.append(cnpj.substring(0, 2));
+		s.append(".");
+		s.append(cnpj.substring(2, 5));
+		s.append(".");
+		s.append(cnpj.substring(5,  8));
+		s.append("/");
+		s.append(cnpj.substring(8, 12));
+		s.append("-");
+		s.append(cnpj.substring(12));
+		
+		return s.toString();
+	}
+	
 	public static String formatarData(Date data) {
 		if(data == null) {
 			return "";

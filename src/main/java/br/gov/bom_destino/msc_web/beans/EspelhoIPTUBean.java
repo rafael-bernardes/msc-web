@@ -77,16 +77,26 @@ public class EspelhoIPTUBean implements Serializable {
 		}
 	}
 
-	public String formatarCPF(String cpf) {
+	public String formatarDocumento(String documento) {
 		String retorno = "";
 		
-		try {
-			retorno = TextoUtils.formatarCPF(cpf);
-		} catch (Exception e) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Falha ao formatar CPF", e.getMessage()));
+		if(documento != null && !documento.isEmpty()) {
+			try {
+				if(TipoPessoa.FISICA.getCodigo().equals(tipoPessoa)) {
+					retorno = TextoUtils.formatarCPF(documento);
+				}else {
+					retorno = TextoUtils.formatarCNPJ(documento);
+				}
+			} catch (Exception e) {
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Falha ao formatar documento", e.getMessage()));
+			}	
 		}
 		
 		return retorno;
+	}
+
+	public void limparDocumento() {
+		documento = "";
 	}
 	
 	public String obterTipoPessoa(Integer tipoPessoa) {

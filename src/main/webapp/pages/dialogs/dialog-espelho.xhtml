@@ -8,14 +8,13 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <ui:composition>
-	<p:dialog id="dialogEspelho" header="Espelho do IPTU" modal="true" responsive="true" widgetVar="dialogEspelho">
-		<h:form>
+	<p:dialog id="dialogEspelho" header="Espelho do IPTU" modal="true" responsive="true" widgetVar="dialogEspelho" draggable="false" resizable="false" fitViewport="true">
 		<p:panelGrid columns="2">
 			<h:outputLabel value="Nome:"></h:outputLabel>
 			<h:outputLabel value="#{espelho.espelho.contribuinte.nome}"></h:outputLabel>
 			
 			<h:outputLabel value="Documento:"></h:outputLabel>
-			<h:outputLabel value="#{espelho.formatarCPF(espelho.espelho.contribuinte.documento)}"></h:outputLabel>
+			<h:outputLabel value="#{espelho.formatarDocumento(espelho.espelho.contribuinte.documento)}"></h:outputLabel>
 			
 			<h:outputLabel value="Tipo de pessoa:"></h:outputLabel>
 			<h:outputLabel value="#{espelho.obterTipoPessoa(espelho.espelho.contribuinte.tipoPessoa)}"></h:outputLabel>
@@ -71,7 +70,6 @@
 			<h:outputLabel value="Observações:"></h:outputLabel>
 			<h:outputLabel value="#{espelho.espelho.observacoes}"></h:outputLabel>
 		</p:panelGrid>
-		</h:form>
 	</p:dialog>
 </ui:composition>
 </html>
