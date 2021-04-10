@@ -9,31 +9,36 @@
 
 <ui:composition template="/template/template.xhtml">
 	<ui:define name="content">
-		<h:form>
-		    <div class="row" align="center" >
-		    	<p:fieldset style="max-width: 800px">
-				<h:outputText value="Nesta funcionalidade, é possível obter dados do espelho do IPTU advindos do STUR"/>
-				</p:fieldset>
-			</div>
-			<div class="row" align="center" style="margin-top: 2em;">
-				<p:selectOneRadio value="#{espelho.tipoPessoa}" columns="3" id="socTipoPessoa">
-					<f:selectItem itemLabel="Pessoa Física" itemValue="1" id="fisica"/>
-					<f:selectItem itemLabel="Pessoa Juridica" itemValue="2" id="juridica"/>
-					<f:selectItem itemLabel="Pessoa Rural" itemValue="3" id="rural"/>
-				</p:selectOneRadio>
-			</div>
-			<div class="row" align="center" style="margin-top: 2em;">
-				<h:outputText value="Documento:" style="margin-rigth: 1em"></h:outputText>
-				<p:inputText value="#{espelho.documento}"></p:inputText>
-			</div>
-			<div class="row" align="center" >
-				<p:selectBooleanCheckbox itemLabel="Autenticar" value="#{espelho.adicionarIdentificacao}"></p:selectBooleanCheckbox>
-			</div>
-			<div class="row" align="center" style="margin-top: 2em;">
-				<p:commandButton value="Gerar Espelho" action="#{espelho.gerarEspelho}" update=":header:growl socTipoPessoa dialogEspelho" ></p:commandButton>
-			</div>
+		<h:form id="formEspelho">
+				<div align="center">
+						<p:fieldset style="max-width: 800px">
+							<h:outputText
+								value="Nesta funcionalidade, é possível obter dados do espelho do IPTU advindos do STUR" />
+						</p:fieldset>
+				</div>
+				<div align="center" style="margin-top: 2em;">
+						<p:selectOneRadio value="#{espelho.tipoPessoa}" columns="3"
+							id="socTipoPessoa">
+							<f:selectItem itemLabel="Pessoa Física" itemValue="1" id="fisica" />
+							<f:selectItem itemLabel="Pessoa Juridica" itemValue="2"
+								id="juridica" />
+							<p:ajax event="valueChange" listener="#{espelho.limparDocumento}" update="documento"></p:ajax>
+						</p:selectOneRadio>
+				</div>
+				<div align="center" style="margin-top: 2em;">
+						<h:outputText value="Documento:" style="margin-rigth: 1em"></h:outputText>
+						<p:inputText value="#{espelho.documento}" id="documento"></p:inputText>
+				</div>
+				<div align="center" style="margin-top: 2em;">
+						<p:selectBooleanCheckbox itemLabel="Autenticar"
+							value="#{espelho.adicionarIdentificacao}"></p:selectBooleanCheckbox>
+				</div>
+				<div align="center" style="margin-top: 2em;">
+						<p:commandButton value="Gerar Espelho"
+							action="#{espelho.gerarEspelho}"
+							update=":header:growl socTipoPessoa formEspelho:dialogEspelho"></p:commandButton>
+				</div>
 			<ui:include src="/pages/dialogs/dialog-espelho.xhtml"></ui:include>
-			
 		</h:form>
 	</ui:define>
 </ui:composition>
