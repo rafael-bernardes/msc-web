@@ -3,7 +3,6 @@ package br.gov.bom_destino.msc_web.enums;
 public enum TipoPessoa {
 	FISICA(1, "Física"),
 	JURIDICA(2, "Jurídica"),
-	RURAL(3, "Rural"),
 	DEFAULT(0, "");
 	
 	private TipoPessoa(Integer codigo, String descricao) {
